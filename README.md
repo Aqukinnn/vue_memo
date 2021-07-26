@@ -1,4 +1,6 @@
-# vue101-200
+Name : Kritsada Lakhasont
+Number : 6110450014
+Section : 200
 
 ## Project setup
 ```
