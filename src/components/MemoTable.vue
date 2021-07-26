@@ -133,9 +133,6 @@ export default {
   
 <style scoped lang ="scss">
   
-  .second{
-    margin: 50px 0 0;
-  }
 
   .styled-table {
     border-collapse: collapse;
@@ -146,7 +143,7 @@ export default {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 .styled-table thead tr {
-    background-color: #009879;
+    background-color: #ce74c9;
     color: #ffffff;
     text-align: left;
 }
@@ -160,10 +157,24 @@ export default {
 
 
 .styled-table tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+    border-bottom: 2px solid #304e86;
 }
 .styled-table tbody tr.active-row {
     font-weight: bold;
     color: #009879;
+}
+th{
+  text-align: center;
+  vertical-align: middle;
+}
+tr{
+  height: 40px;
+  width: 160px;
+  text-align: center;
+  vertical-align: middle;
+}
+h2{
+  text-align: center;
+  vertical-align: middle;
 }
 </style>
