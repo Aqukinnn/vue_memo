@@ -1,19 +1,22 @@
 <template>
-  <div class = "tables">
-    <table>
+  <div>
+    <table class="styled-table">
       <thead>
         <tr>
-          <th>#</th>
-          <th>รายรับ</th>
-          <th>รายจ่าย</th>
-          <th>วัน เดือน ปี</th>
-          <th>รายละเอียด</th>
+          <th >ลำดับ</th>
+          <th >รายรับ</th>
+          <th >รายจ่าย</th>
+          <th >วัน เดือน ปี</th>
+          <th >รายละเอียด</th>
+          <th ></th>
+          <th ></th>
 
         </tr>
       </thead>
       <tbody >
         <tr v-for="(mem, index) in memos" :key="index">
           <td>{{ index + 1 }}</td>
+          
           <td v-if="index !== editIndex">{{ mem.money.profits }}</td>
           <td v-if="index === editIndex">
             <input type="text" v-model="form.money.profits" />
@@ -44,11 +47,7 @@
         </tr>
       </tbody>
       <div class = "second">
-        <tr>
-          <th> รวมรายรับ </th>|
-          <th> รวมรายจ่าย </th>
-        </tr>
-        
+        <h2> รวมเงินคงเหลือ Total : {{ result }}</h2>
       </div>
     </table>
   </div>
@@ -60,6 +59,7 @@ export default {
   data() {
     return {
       // สำหรับแสดงข้อมูล
+      totals:0,
       memos: [],
 
       // สำหรับฟอร์มแก้ไข
@@ -72,6 +72,17 @@ export default {
         type: "",detail:""
       },
     }
+  },
+  computed: {
+    result: function() {
+      let income = 0;
+      let expense = 0;
+      for (let inx of this.memos) {
+        income += parseFloat(inx.money.profits);
+        expense += parseFloat(inx.money.losts);
+      }
+      return income - expense;
+    },
   },
   created() {
     this.fetchMemo()
@@ -110,21 +121,49 @@ export default {
       MemoStore.dispatch("editMemo", payload)
       this.closeForm()
     },
-    total_profits(){
-        profits = Number(document.calculator.people.value);
-        b = Number(document.calculator.price.value);
-        c = a * b;
-        document.calculator.total.value=c;
+    total(){  
+      var totals = 0
+      for(i=0;i<this.form.money.length;i++){
+          totals = this.form.money.profits-this.form.money.losts
+        }
     }
   },
 }
 </script>
   
 <style scoped lang ="scss">
-  .tables{
-    margin: 40px 0 0;
-  }
+  
   .second{
-    margin: 30px 0 0;
+    margin: 50px 0 0;
   }
+
+  .styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
 </style>
