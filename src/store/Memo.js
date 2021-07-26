@@ -41,32 +41,33 @@ export default new Vuex.Store({
 
     // commit เป็น keyword ไว้เรียก mutation
     fetchMemo({ commit }) {
-      let res = {
-        data:[{
-          "detail": "โดนปล้น",
-          "money": {
-            "profits": "0",
-            "losts": "10000",
-          },
-          "type": [
-            "10",
-            "November",
-            "2020"
-          ],
-        },
-        {
-          "detail": "ปล้นโจรคืน",
-          "money": {
-            "profits": "10000",
-            "losts": "0",
-          },"total":{ "income" : "0", "expense" : "0" },
-          "type": [
-            "11",
-            "November",
-            "2020"
-          ],
-        }]
-      }
+      let res = require("@/json/data.json")
+      // let res = {
+      //   data:[{
+      //     "detail": "โดนปล้น",
+      //     "money": {
+      //       "profits": "0",
+      //       "losts": "10000",
+      //     },
+      //     "type": [
+      //       "10",
+      //       "November",
+      //       "2020"
+      //     ],
+      //   },
+      //   {
+      //     "detail": "ปล้นโจรคืน",
+      //     "money": {
+      //       "profits": "10000",
+      //       "losts": "0",
+      //     },
+      //     "type": [
+      //       "11",
+      //       "November",
+      //       "2020"
+      //     ],
+      //   }]
+      // }
 
       commit("fetch", { res })
     },
