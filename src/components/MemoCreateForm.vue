@@ -1,31 +1,31 @@
 <template>
   <div>
-    <div class="home">
+    <div>
       <h1>บันทึกรายรับรายจ่าย</h1>
       <h3>เพิ่มข้อมูล</h3>
     </div>
 
-    <div class="tables">
-      <div>
+    <div class="Display">
+      <div class="like">
         <label for="make">รายรับ</label>
         <input type="text" v-model="form.money.profits">
       </div>
 
-      <div>
-        <label for="take">รายจ่าย</label>
+      <div class="like">
+        <label for="take" >รายจ่าย</label>
         <input type="text" v-model="form.money.losts">
       </div>
 
-      <div>
+      <div class="like">
         <label for="type">วัน,เดือน,ปี</label>
         <input type="text" v-model="form.type">
       </div>
 
-      <div>
+      <div class="like">
         <label for="detail">รายละเอียด</label>
         <input type="text" v-model="form.detail">
       </div>
-      <div>
+      <div class="likes">
         <button @click="addMemo">Add</button>
       </div>
     </div>
@@ -76,14 +76,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  h1 {
-    margin: 20px 0 0;
-  }
-  h3 {
-    margin: 10px 0 0;
-  }
-  .tables{
-    margin: 30px 0 0;
-  }
-
+      .Display{
+        display: flex;
+      }
+      label {
+        margin: 20px 0 0;
+        font-size: 18px;
+        font-weight: 700;
+        color: #013e64;
+      }
+      .like{
+        margin: 20px 0 0;
+      }
+      .likes{
+        margin: 23px 0 0;
+      }
 </style>
