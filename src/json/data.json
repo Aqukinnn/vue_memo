@@ -1,0 +1,39 @@
+{
+ "data":[
+    {
+        "detail": "โดนปล้น",
+        "money": {
+            "profits": "0",
+            "losts": "10000"
+        },
+        "type": [
+            "10",
+            "November",
+            "2020"
+        ]
+            },
+    {   "detail": "ปล้นโจรคืน",
+        "money": {
+            "profits": "22000",
+            "losts": "0"
+        },
+        "type": [
+            "11",
+            "November",
+            "2020"
+        ]
+            },
+            {   "detail": "โจรปล้นคืนอีกรอบ",
+                "money": {
+                    "profits": "0",
+                    "losts": "10"
+                },
+                "type": [
+                    "12",
+                    "November",
+                    "2020"
+                ]
+                    }
+       
+        ]
+ }
